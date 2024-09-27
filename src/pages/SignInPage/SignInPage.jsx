@@ -10,9 +10,14 @@ import imageLogo from "../../assets/images/theme-login.jpg";
 import { Image } from "antd";
 import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const handleNavigateSignUp = () => {
+    navigate("/user/register");
+  };
   return (
     <div
       style={{
@@ -79,7 +84,13 @@ const SignInPage = () => {
             <WrapperTextLight>Forgot password</WrapperTextLight>
           </p>
           <p>
-            No account ? <WrapperTextLight>Sign Up</WrapperTextLight>
+            No account ?{" "}
+            <WrapperTextLight
+              onClick={handleNavigateSignUp}
+              style={{ cursor: "pointer" }}
+            >
+              Sign Up
+            </WrapperTextLight>
           </p>
         </WrapperContainerLeft>
 
